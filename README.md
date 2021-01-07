@@ -1,0 +1,2 @@
+# Eltex
+Django web application
