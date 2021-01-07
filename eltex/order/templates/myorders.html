@@ -1,0 +1,104 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+
+	<!--//////////////////////////////////////////////////-->
+	<!--///////////////////Checkout Page//////////////////////-->
+	<!--//////////////////////////////////////////////////-->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><a href="#">My Orders</a></li>
+					</ul>
+				</div>
+			</div>
+			<center><h1><b>My Orders</b></h1></center>
+			<div class="row">
+				<div class="col-md-6">
+					<table border="1" width="100%">
+						{% if product %}
+					<tr>
+						<td align="center"><b>Product</b></td>
+						<td align="center"><b>Price</b></td>
+					</tr>
+					{% for item in product %}
+					<tr>
+						<td>{{item.name}}</td>
+						<td align="right">Rs.{{item.price}}.00</td>
+					</tr>
+					{% endfor %}
+					{% else %}
+					You have not ordered something yet!
+					{% endif %}
+					</table>
+				</div>
+				<div class="col-md-6">
+					<table border="1" width="100%">
+						{% if orders %}
+						<tr>
+							<td align="center"><b>Ordered price</b>
+							<td align="center"><b>Order On</b></td>
+							<td align="center"><b>Delivered</b></td>
+						</tr>
+						
+						{% for orders in orders %}
+						<tr>
+						<td align="right">Rs.{{orders.price}}.00</td>
+						<td align="right">{{orders.orderon}}</td>
+						<td align="right">{{orders.delivered}}</td>
+						</tr>
+						{% endfor %}
+						{% endif%}
+					</table>
+				</div>
+			</div>
+
+					<div class="clear"></div>
+				</div>	
+			</div>
+
+
+			<!--<div class="row">
+				<div class="product well">
+					<div class="col-md-3">
+						<div class="image">
+							<img src="images/Z1.png" />
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="caption">
+							<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+							<div class="info">
+								<ul>
+									<li>Brand: text</li>
+									<li>ID: 0122222</li>
+								</ul>
+							</div>
+							<div class="price">$122<span>$98</span></div>
+							<label>Qty: </label> <input class="form-inline quantity" type="text" value="1"><a href="#" class="btn btn-2 ">Update</a>
+							<hr>
+							<a href="#" class="btn btn-default pull-right">REMOVE</a>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>	
+			</div>-->
+			<!--<div class="row">
+				<div class="col-md-4 col-md-offset-8 ">
+					<center><a href="{% url 'confirm' %}" class="btn btn-1">CONFIRM</a></center>
+				</div>
+			</div>-->
+			<div class="row">
+				<div class="pricedetails">
+					<div class="col-md-4 col-md-offset-8">
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+{%endblock%}

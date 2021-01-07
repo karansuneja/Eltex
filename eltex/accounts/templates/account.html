@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<script>
+function f1()
+{
+var uname=document.getElementById("username");
+var pass=document.getElementById("password");
+var pass1=document.getElementById("repassword");
+var email=document.getElementById("email");
+var phone=document.getElementById("phone");
+if(uname.value=="")
+{
+alert("you must enter name");
+uname.focus();
+uname.style.border="3px solid red";
+exit();
+}
+if(!isNaN(uname.value))
+{
+alert("you must enter valid name");
+uname.focus();
+uname.value="";
+uname.style.border="3px solid red";
+exit();
+}
+
+
+if(pass.value=="")
+{
+alert("you must enter password");
+pass.focus();
+pass.style.border="3px solid red";
+exit();
+}
+if(pass.value.length<8)
+{
+alert("you must enter a strong password");
+pass.focus();
+pass.value="";
+pass.style.border="3px solid red";
+exit();
+}
+
+if(pass1.value=="")
+{
+alert("you must enter password");
+pass1.focus();
+pass1.style.border="3px solid red";
+exit();
+}
+if(pass1.value.length<8)
+{
+alert("you must enter a strong password");
+pass1.focus();
+pass1.value="";
+pass1.style.border="3px solid red";
+exit();
+}
+if(pass1.value!=pass.value)
+{
+alert("you must enter the same password");
+pass1.focus();
+pass1.value="";
+pass1.style.border="3px solid red";
+exit();	
+}
+if(email.value=="")
+{
+alert("you must enter email");
+email.focus();
+email.style.border="3px solid red";
+exit();
+}
+if((email.value.indexOf('@')<=0))
+{
+alert("you must enter valid emailid");
+email.focus();
+email.value="";
+email.style.border="3px solid red";
+exit();
+}
+if(phone.value.length!=10)
+{
+alert("you must enter a valid phone no.");
+phone.focus();
+phone.value="";
+phone.style.border="3px solid red";
+exit();
+}
+if(phone.value=="")
+{
+alert("you must enter phone no.");
+phone.focus();
+phone.style.border="3px solid red";
+exit();
+}
+if(isNaN(phone.value))
+{
+alert("you must enter valid phone no.");
+phone.focus();
+phone.value="";
+phone.style.border="3px solid red";
+exit();
+}
+if(phone.value.length<10)
+{
+alert("you must enter a valid phone number");
+phone.focus();
+phone.value="";
+phone.style.border="3px solid red";
+exit();
+}
+if(phone.value.length>10)
+{
+alert("you must enter a valid phone number");
+phone.focus();
+phone.value="";
+phone.style.border="3px solid red";
+exit();
+}
+
+document.getElementById("ff2").submit();
+}
+</script>
+	<!--//////////////////////////////////////////////////-->
+	<!--///////////////////Account Page///////////////////-->
+	<!--//////////////////////////////////////////////////-->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><a href="#">Account</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="heading"><h2>Login</h2></div>
+					<form name="form1" id="ff1" method="POST" action="{% url 'login' %}">
+					 {% csrf_token %} 
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Username :" name="usernamee" id="usernamee" required>
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Password :" name="passwordd" id="passwordd" required>
+						</div>
+						<button type="submit" class="btn btn-1" name="login" id="login">Login</button>
+						<!--<a href="#">Forgot Your Password ?</a>-->
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="heading"><h2>New User ? Create An Account.</h2></div>
+					<form name="form2" id="ff2" method="POST" action="{% url 'register' %}">
+					{% csrf_token %} 
+						<!--<div class="form-group">
+							<input type="text" class="form-control" placeholder="First Name :" name="firstname" id="firstname" required>
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" placeholder="Last Name :" name="lastname" id="lastname" required>
+						</div>-->
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="User Name :" name="username" id="username" required>
+						</div>
+						<div class="form-group">
+							<input type="tel" class="form-control" placeholder="Email Address :" name="email" id="email" required>
+						</div>
+						<div class="form-group">
+							<input type="tel" class="form-control" placeholder="Mobile :" name="phone" id="phone" required>
+						</div>
+						<!--<div class="form-group">
+							<input name="gender" id="gender" type="radio"> Male <input name="gender" id="gender" type="radio"> Female 
+						</div>-->
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Password :" name="password" id="password" required>
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Retype Password :" name="repassword" id="repassword" required>
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" placeholder="status:" name="status" id="status" value="inactive" required>
+						</div>
+						<!--<div class="form-group">
+							<input name="agree" id="agree" type="checkbox" required> I agree to your website.
+						</div>-->
+						<button type="button" class="btn btn-1" onclick="f1()">Create</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

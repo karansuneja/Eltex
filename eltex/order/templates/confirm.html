@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+	<!--//////////////////////////////////////////////////-->
+	<!--///////////////////Account Page///////////////////-->
+	<!--//////////////////////////////////////////////////-->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="account.html">Account</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="heading"><h2>Personal Details</h2></div>
+					<form name="form3" id="ff3" method="POST" action="{% url 'details' %}">
+					 {% csrf_token %} 
+					 	<div class="form-group">
+							<input type="hidden" class="form-control" placeholder="First Name :" name="user" id="user" value={{user.id}}>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="First Name :" name="f_name" id="f_name" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Last Name :" name="l_name" id="l_name" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Address:" name="address" id="address" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Country:" name="country" id="country" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="State :" name="state" id="state" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="City:" name="city" id="city" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Landmark :" name="landmark" id="landmark" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Alternate Phone :" name="alternate_phone" id="alternate_phone" required>
+						</div>
+						<button type="submit" class="btn btn-1">Save</button>
+					</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

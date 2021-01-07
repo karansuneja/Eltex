@@ -1,0 +1,60 @@
+{% load static %}
+<footer>
+		<div class="container">
+			<div class="wrap-footer">
+				<div class="row">
+					<div class="col-md-3 col-footer footer-1">
+						<img src="{% static 'images/finallogo1.png' %}" />
+						<p>ELTEX is an E shopping website deals in electronic gadgets</p>
+					</div>
+					<div class="col-md-3 col-footer footer-2">
+						<div class="heading"><h4>Customer Service</h4></div>
+						<ul>
+							<li><a href="{% url 'aboutus' %}">About Us</a></li>
+							<li><a href="{% url 'myorders' %}">Delivery Information</a></li>
+							<li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+							<li><a href="{% url 'terms' %}">Terms & Conditions</a></li>
+							<li><a href="{% url 'contact' %}">Contact Us</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 col-footer footer-3">
+						<div class="heading"><h4>My Account</h4></div>
+						<ul>
+							<li><a href="{% url 'show_details' %}">My Account</a></li>
+							<li><a href="{% url 'contact' %}">Site Map</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 col-footer footer-4">
+						<div class="heading"><h4>Contact Us</h4></div>
+						<ul>
+							<li><span class="glyphicon glyphicon-home"></span>Shri Guru Tegh Bahadur Institute of Management and Information Technology
+24, GT Karnal Rd, Gurdwara Nanak Piao Campus, Kirpal Bagh, Gujranwala Town, New Delhi, Delhi 110033</li>
+							<li><span class="glyphicon glyphicon-earphone"></span> 011 2712 4670</li>
+							<li><span class="glyphicon glyphicon-envelope"></span>sgtbimit@hotmail.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<!--<div class="col-md-6">
+						Your Store ?? 20xx - Designed by <a href="https://www.Zerotheme.com">Zerotheme</a>
+					</div>-->
+					<div class="col-md-6">
+						<div class="pull-right">
+							<ul>
+								<li><img src="{% static 'images/visa-curved-32px.png' %}" /></li>
+								<li><img src="{% static 'images/paypal-curved-32px.png' %}" /></li>
+								<li><img src="{% static 'images/discover-curved-32px.png' %}" /></li>
+								<li><img src="{% static 'images/maestro-curved-32px.png' %}" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	</body>
+</html>
