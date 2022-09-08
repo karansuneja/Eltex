@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'eltex.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eltex1',
+        'NAME': 'eltex',
         'USER': 'root',
-        'PASSWORD':'Qwerty@123',
-        'HOST': 'localhost',
-        'PORT':'',
+        'PASSWORD':'qwerty@123',
+        'HOST': 'mysql-db',
+        'PORT':'3306',
         #'ENGINE':'mysql.connector.django'
     }
 }
